@@ -1,5 +1,6 @@
 import React, {useReducer} from 'react'
-
+import {useSampleDispatch, useSampleState} from "./SampleContext";
+/*
 type Color = "RED" | "GREEN" | "BLUE";
 type State = {
     count: number;
@@ -37,14 +38,10 @@ function reducer(state: State, action: Action):State{
         default:
             throw new Error("Unhandled action");
     }
-}
+}*/
 function ReducerSample(){
-    const [state, dispatch] = useReducer(reducer, {
-        count:0,
-        text: "hello",
-        color: "red",
-        isGood: false,
-    });
+    const state = useSampleState();
+    const dispatch = useSampleDispatch();
     function setCount(){dispatch({type:"SET_COUNT", count: state.count+1})}
     function setColor(){dispatch({type:"SET_COLOR", color: "RED"})}
     function setText(){dispatch({type:"SET_TEXT", text: "hello my name is changho"})}
